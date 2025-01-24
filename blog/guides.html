@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from ff.io/blog/guides by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Jan 2025 23:01:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<title>Guides and tutorials | Blog | FixedFloat</title>
+	<meta name="description" content="Our news, cryptocurrencies guides and tutorials">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta property="og:image" content="../assets/images/public/ogimage.jpg">
+	<meta property="og:site_name" content="FixedFloat">
+	<meta name="title" content="Guides and tutorials | Blog | FixedFloat">
+	<meta property="og:title" content="Guides and tutorials | Blog | FixedFloat">
+	<meta property="og:description" content="Our news, cryptocurrencies guides and tutorials">
+	<link rel="shortcut icon" href="../assets/images/favicon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="117x117" href="../assets/images/icons/apple-touch-icon-117x117.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/apple-touch-icon-180x180.png">
+	<link rel="alternate" hreflang="en" href="../en/blog/guides.html">
+	<link rel="alternate" hreflang="es" href="../es/blog/guides.html">
+	<link rel="alternate" hreflang="de" href="../de/blog/guides.html">
+	<link rel="alternate" hreflang="fr" href="../fr/blog/guides.html">
+	<link rel="alternate" hreflang="pt" href="../pt/blog/guides.html">
+	<link rel="alternate" hreflang="ru" href="../ru/blog/guides.html">
+	<link rel="alternate" hreflang="pl" href="../pl/blog/guides.html">
+	<link rel="alternate" hreflang="nl" href="../nl/blog/guides.html">
+	<link rel="alternate" hreflang="ua" href="../ua/blog/guides.html">
+	<link rel="alternate" hreflang="tr" href="../tr/blog/guides.html">
+	<link rel="alternate" hreflang="it" href="../it/blog/guides.html">
+	<link rel="alternate" hreflang="cn" href="../cn/blog/guides.html">
+	<link rel="alternate" hreflang="ko" href="../ko/blog/guides.html">
+	<link rel="alternate" hreflang="ja" href="../ja/blog/guides.html">
+	<link rel="alternate" hreflang="x-default" href="guides.html">
+	<link rel="preload" href="../assets/fonts/montserrat/latin/montserrat-v25-latin-300.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../assets/fonts/montserrat/latin/montserrat-v25-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../assets/fonts/montserrat/latin/montserrat-v25-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../assets/fonts/montserrat/latin/montserrat-v25-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../assets/fonts/montserrat/latin/montserrat-v25-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../assets/fonts/fficons/fficonsdc90.woff2?172355" as="font" type="font/woff2" crossorigin>
+	<style type="text/css">
+		@font-face {
+			font-family: 'Icons';
+			font-display: block;
+			src: url("../assets/fonts/fficons/fficonsdc90.woff2?172355") format("woff2"), 
+			     url("../assets/fonts/fficons/fficonsdc90.woff?172355") format("woff"), 
+			     url("../assets/fonts/fficons/fficonsdc90.ttf?172355") format("truetype");
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="../assets/css/min56f6.css?131929">
+	<script type="text/javascript" src="../assets/js/min56f6.js?131929"></script>
+	<script type="text/javascript" src="../assets/js/libs/moment.min.js" defer></script>
+	<script type="text/javascript" src="../assets/js/libs/jsqr.js" defer></script>
+	<script type="text/javascript" src="../assets/js/libs/webln.min.js" defer></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125458753-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-125458753-1');
+	</script>
+</head>
+<body class="blog">
+	<script type="text/javascript">
+		let localTheme = localStorage.getItem('theme');
+		let currTheme  = localTheme ? localTheme : "dark";
+		window.themeLight = currTheme == 'light' ? true : false;
+		document.body.className += (document.body.className ? ' ' : '') + currTheme+'bg';
+	</script>
+	<script type="text/javascript">
+		function initFreshChat() {
+			let restoreId = '';
+			window.fcWidget.init({
+				token: "15d5f180-cf0e-4bcc-8165-c25e4879bab4",
+				host:  "https://wchat.freshchat.com",
+				locale: "en",
+				externalId: "client_12898840",
+				restoreId: restoreId ? restoreId : null,
+				config: {
+			    	hideFAQ: true,
+			    	agent: {
+				        hideName: true,
+				        hidePic:  true,
+				        hideBio:  false,
+			    	},
+				},
+			});
+			window.fcWidget.user.get(function(resp) {
+				window.fcWidget.user.setFirstName("Client #12898840");
+
+				let status = resp && resp.status,
+					data   = resp && resp.data;
+				if (status !== 200) {
+					window.fcWidget.on('user:created', function(resp) {
+						let status = resp && resp.status,
+							data   = resp && resp.data;
+						if (status === 200 || !restoreId) {
+							setRestoreId(data.restoreId)
+						}
+					});
+				} else if (data.restoreId && !restoreId) {
+					setRestoreId(data.restoreId)
+				}
+			});
+			function setRestoreId(restoreId) {
+				if (!restoreId) return;
+				APP.api('userSetChatRestoreId', {restoreId: restoreId})
+					.then(function(msg) {}).catch(function(msg) {})
+			}
+
+			document.dispatchEvent(new Event("freshchatStart"));
+		}
+
+		function initialize(i,t) {
+			var e;
+			i.getElementById(t) ? initFreshChat() : (
+				(e = i.createElement("script")).id = t,
+				e.async = !0,
+				e.src = "../../wchat.freshchat.com/js/widget.js",
+				e.onload = initFreshChat,
+				i.head.appendChild(e)
+			)
+		}
+		function initiateCall() {
+			initialize(document,"freshchat-js-sdk")
+		}
+		window.addEventListener ? window.addEventListener("load",initiateCall,!1) : window.attachEvent("load",initiateCall,!1);
+	</script>
+	<style id="highlighting_style"></style>
+	<header id="header">
+		<div class="wrapper">
+			<div class="left-menu-wrap" id="left_menu_wrap">
+				<div id="left_menu_btn">
+					<div><span></span><span></span><span></span></div>
+				</div>
+				<nav class="left-menu" id="left_menu">
+					<div class="theme-switch-wrap">
+						<label class="theme-switch">
+							<input type="checkbox" name="themelight" id="themelight_switch_mobile">
+							<span><i class="ico"></i></span>
+						</label>
+					</div>
+					<section>
+						<ul id="left_menu_content" class="menu linkhl">
+							<li class="menu-head"><span>Account</span></li>
+													<li><a href="../user/signin.html">Sign in</a></li>
+							<li><a href="../user/signup.html">Sign up</a></li>
+													<li class="menu-head"><span>FixedFloat</span></li>
+							<li><a href="../about.html">About</a></li>
+							<li><a href="../blog.html">Blog</a></li>
+							<li><a href="../faq.html">FAQ</a></li>
+							<li><a href="../api.html">API</a></li>
+							<li><a href="../support.html">Support</a></li>
+													<li><a href="../affiliate.html">Affiliate program</a></li>
+						                            <li><a href="../brand.html">Our brand</a></li>
+							<li class="menu-head"><span>Rules</span></li>
+                            <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+			<nav>
+								<a href="../index.html" id="logo" class="logo">
+					<span class="logo-text-fixed" id="logo_text_from"></span><div class="ico"><span class="logo-arrow-from" id="logo_arrow_from"></span><span class="logo-arrow-to" id="logo_arrow_to"></span></div><span class="logo-text-float" id="logo_text_to"></span>
+				</a>
+				<div class="nav-right">
+					<ul class="nav menu hoverhl">
+						<li><a href="../about.html">About</a></li>
+						<li><a href="../blog.html">Blog</a></li>
+						<li><a href="../faq.html">FAQ</a></li>
+						<li><a href="../api.html">API</a></li>
+						<li><a href="../support.html">Support</a></li>
+					</ul>
+					<div class="loc hoverhl">
+						<a class="menu-focus-btn" tabindex="0"><div class="ui-select-value"><i class="loc-img loc-en"></i></div></a>
+						<div class="menu-focus-opened">
+							<ul class="hoverhl" id="loc_menu_wrap">
+																	<li><a href="../en/blog/guides.html"><i class="loc-img loc-en"></i><span>English</span></a></li>
+																	<li><a href="../es/blog/guides.html"><i class="loc-img loc-es"></i><span>Español</span></a></li>
+																	<li><a href="../de/blog/guides.html"><i class="loc-img loc-de"></i><span>Deutsch</span></a></li>
+																	<li><a href="../fr/blog/guides.html"><i class="loc-img loc-fr"></i><span>Français</span></a></li>
+																	<li><a href="../pt/blog/guides.html"><i class="loc-img loc-pt"></i><span>Português</span></a></li>
+																	<li><a href="../ru/blog/guides.html"><i class="loc-img loc-ru"></i><span>Русский</span></a></li>
+																	<li><a href="../pl/blog/guides.html"><i class="loc-img loc-pl"></i><span>Polski</span></a></li>
+																	<li><a href="../nl/blog/guides.html"><i class="loc-img loc-nl"></i><span>Nederlands</span></a></li>
+																	<li><a href="../ua/blog/guides.html"><i class="loc-img loc-ua"></i><span>Украïнська</span></a></li>
+																	<li><a href="../tr/blog/guides.html"><i class="loc-img loc-tr"></i><span>Türkçe</span></a></li>
+																	<li><a href="../it/blog/guides.html"><i class="loc-img loc-it"></i><span>Italiano</span></a></li>
+																	<li><a href="../cn/blog/guides.html"><i class="loc-img loc-cn"></i><span>中文</span></a></li>
+																	<li><a href="../ko/blog/guides.html"><i class="loc-img loc-ko"></i><span>한국어</span></a></li>
+																	<li><a href="../ja/blog/guides.html"><i class="loc-img loc-ja"></i><span>日本の</span></a></li>
+															</ul>
+						</div>
+						<div class="shadow-body" tabindex="0"></div>
+					</div>
+					<div class="theme-switch-wrap">
+						<label class="theme-switch">
+							<input type="checkbox" name="themelight" id="themelight_switch">
+							<span><i class="ico"></i></span>
+						</label>
+						<script type="text/javascript">
+						    if (window.themeLight) {
+						    	document.getElementById('themelight_switch').checked = true;
+						    	document.getElementById('themelight_switch_mobile').checked = true;
+						    }
+						</script>
+					</div>
+													<div class="nav userbar hoverhl">
+						<a id="header_signin" class="btn-text" href="../user/signin.html">Sign in</a>
+						<a id="header_signup" class="btn" href="../user/signup.html">Sign up</a>
+					</div>
+								</div>
+			</nav>
+			<div class="shadow-body"></div>
+		</div>
+	</header>
+	<template id="auth">
+	<div class="popup-auth">
+		<div class="auth-wrap">
+					<div class="auth-image"></div>
+					<div class="auth-content">
+				<nav class="auth-nav" id="auth_nav">
+					<button type="button" id="nav_signin" class="auth-nav-btn" data-layout="signin">Sign in</button><button type="button" id="nav_signup" class="auth-nav-btn" data-layout="signup">Sign up</button>
+				</nav>
+				<div class="auth-outer" id="auth_layouts">
+					<form class="auth-layout" id="layout_forgot">
+						<input name="email" required type="text" value="" data-label="Email" data-error-empty="This is a required field" data-error-invalid="Email entered is not a valid email">
+						<div class="auth-success" id="auth_reset_success">
+							<p>Reset request successfully sent. You will receive a confirmation e-mail if this account has been registered.</p>
+							<div class="auth-wrap-btn"><button class="btn close popup-close-btn">Close</button></div>
+						</div>
+						<div class="auth-error" id="auth_reset_captcha_error">Invalid CAPTCHA. Try again</div>
+						<div class="auth-error" id="auth_reset_error">User with this email is not registered on the site.</div>
+						<div class="auth-wrap-btn">
+							<button class="btn" id="auth_reset_btn" disabled data-captcha-loading="Loading CAPTCHA...">Reset password</button>
+						</div>
+						<div class="auth-wrap-btn">
+							<button class="btn-text auth-nav-btn" type="button" data-layout="signin">Back to Sign in</button>
+						</div>
+					</form>
+					<form class="auth-layout" id="layout_signin">
+						<input name="email" required type="text" value="" data-label="Email" data-error-empty="This is a required field" data-error-invalid="Email entered is not a valid email">
+						<input name="pswd" required type="password" value="" data-label="Password" data-error-empty="This is a required field">
+						<div class="auth-forgot-wrap">
+							<button class="btn-text hl auth-nav-btn" type="button" id="nav_forgot" data-layout="forgot">Forgot password</button>
+						</div>
+						<div class="auth-error" id="signin_captcha_error">Invalid CAPTCHA. Try again</div>
+						<div class="auth-error" id="auth_error">Invalid email or password</div>
+						<div class="auth-wrap-btn">
+							<button class="btn" id="auth_signin" disabled data-captcha-loading="Loading CAPTCHA...">Sign in</button>
+						</div>
+					</form>
+					<form class="auth-layout" id="layout_signup">
+						<input name="email" required type="text" value="" data-label="Email" data-error-empty="This is a required field" data-error-invalid="Email entered is not a valid email">
+						<input name="pswd" required type="password" value="" data-label="Password" data-error-empty="This is a required field" data-error-invalid="The password must contain at least one uppercase and one lowercase letter, one number, and contain at least 6 characters.">
+						<input name="repswd" required type="password" value="" data-label="Confirm Password" data-error-empty="This is a required field" data-error-invalid="Passwords do not match.">
+						<div class="auth-error" id="signup_captcha_error" data-loading="Invalid CAPTCHA. Try again"></div>
+						<div class="auth-error" id="auth_signup_error">An account with this email already exists. <button class="btn-text auth-nav-btn" type="button" data-layout="forgot" style="color: inherit;">Forgot password?</button></div>
+						<div class="auth-wrap-btn">
+							<button class="btn" id="auth_signup" disabled data-captcha-loading="Loading CAPTCHA...">Sign up</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+    <main>
+        <div class="wrapper clrfix">
+            <h1>Blog</h1>
+            <section class="blog-section">
+                <header><nav>
+    <a href="../blog.html">Recent</a>
+    <a href="guides.html" class="active">Guides</a>
+    <a href="news.html">News</a>
+    <a href="currencies.html">About cryptocurrencies</a>
+    <a href="exchanges.html">Exchange tutorials</a>
+</nav>
+<div class="blog-maintags">
+    <select id="blog_tags" data-start="Tags" class="hidden">
+            <option value="0x">0x</option>
+            <option value="aave">AAVE</option>
+            <option value="ada">ADA</option>
+            <option value="arbitrum-">Arbitrum</option>
+            <option value="atom">ATOM</option>
+            <option value="authored-articles">Authored articles</option>
+            <option value="avalanche">Avalanche</option>
+            <option value="avax">AVAX</option>
+            <option value="base">Base</option>
+            <option value="basic-attention">Basic Attention</option>
+            <option value="bat">BAT</option>
+            <option value="bch">BCH</option>
+            <option value="binance-coin">Binance Coin</option>
+            <option value="binance-smart-chain">Binance Smart Chain</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="bitcoin-cash">Bitcoin Cash</option>
+            <option value="bittorrent">BitTorrent</option>
+            <option value="blockchain">Blockchain</option>
+            <option value="bnb">BNB</option>
+            <option value="bsc">BSC</option>
+            <option value="btc">BTC</option>
+            <option value="btcln">BTCLN</option>
+            <option value="btt">BTT</option>
+            <option value="cake">CAKE</option>
+            <option value="cardano">Cardano</option>
+            <option value="chainlink">Chainlink</option>
+            <option value="confirmations">Confirmations</option>
+            <option value="cosmos">Cosmos</option>
+            <option value="cryptocurrencies">Cryptocurrencies</option>
+            <option value="dai">DAI</option>
+            <option value="dash">Dash</option>
+            <option value="doge">DOGE</option>
+            <option value="dogecoin">Dogecoin</option>
+            <option value="dot">DOT</option>
+            <option value="eos">EOS</option>
+            <option value="etc">ETC</option>
+            <option value="eth">ETH</option>
+            <option value="eth-optimism">ETH Optimism</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="ethereum-classic">Ethereum Classic</option>
+            <option value="exchange">Exchange</option>
+            <option value="fantom">Fantom</option>
+            <option value="guides">Guides</option>
+            <option value="kcs">KCS</option>
+            <option value="kucoin">KuCoin</option>
+            <option value="lightning">Lightning</option>
+            <option value="link">LINK</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="ltc">LTC</option>
+            <option value="matic">Matic</option>
+            <option value="monero">Monero</option>
+            <option value="news">News</option>
+            <option value="pancakeswap-">PancakeSwap</option>
+            <option value="pax">PAX</option>
+            <option value="paxos-standard">Paxos Standard</option>
+            <option value="polkadot">Polkadot</option>
+            <option value="polygon">Polygon</option>
+            <option value="rbf">RBF</option>
+            <option value="ripple">Ripple</option>
+            <option value="segwit">Segwit</option>
+            <option value="sol">SOL</option>
+            <option value="solana">Solana</option>
+            <option value="stellar-lumens">Stellar Lumens</option>
+            <option value="sui">SUI</option>
+            <option value="tether">Tether</option>
+            <option value="ton">TON</option>
+            <option value="toncoin">Toncoin</option>
+            <option value="tron">Tron</option>
+            <option value="trueusd">TrueUSD</option>
+            <option value="trust-wallet-token">Trust Wallet Token</option>
+            <option value="tusd">TUSD</option>
+            <option value="twt">TWT</option>
+            <option value="usd-coin">USD Coin</option>
+            <option value="usdc">USDC</option>
+            <option value="usdt">USDT</option>
+            <option value="xlm">XLM</option>
+            <option value="xmr">XMR</option>
+            <option value="xrp">XRP</option>
+            <option value="zcash">Zcash</option>
+            <option value="zec">ZEC</option>
+            <option value="zrx">ZRX</option>
+        </select>
+</div>
+<template id="selector_tmpl"><a class="tag" href="tag/%7bvalue%7d.html">{label}</a></template>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+    	let F = UI.func;
+        UI.selector(F.id('blog_tags'), {
+            tmpl: F.id('selector_tmpl').innerHTML,
+            inner: true,
+            tmplSel: '{label}',
+            startText: F.id('blog_tags').getAttribute('data-start'),
+            search: {placeholder: 'Search', label: 'Found'},
+        });
+    })
+</script></header>
+                <section class="blog-articles articles-list">
+                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/bitcoin.html">Bitcoin</a>
+	    	        <a href="tag/blockchain.html">Blockchain</a>
+	    	        <a href="tag/btc.html">BTC</a>
+	    	        <a href="tag/guides.html">Guides</a>
+	    	</div>
+	<a href="guides/how-work-blockchain.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/how_work_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/how_work_w768.jpg" alt="A clear example of how transactions on the blockchain are confirmed">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">A clear example of how transactions on the blockchain are confirmed</header>
+                <div class="blog-post-desc">A simplified model of blockchain operation is considered on the example of train traffic.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1578902400"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/bitcoin.html">Bitcoin</a>
+	    	        <a href="tag/btc.html">BTC</a>
+	    	        <a href="tag/guides.html">Guides</a>
+	    	</div>
+	<a href="guides/why-bitcoin-is-not-confirmed.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/whynot_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/whynot_w768.jpg" alt="Why is my bitcoin transaction not confirming?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Why is my bitcoin transaction not confirming?</header>
+                <div class="blog-post-desc">How to estimate your Bitcoin transaction confirmation time? Simple instructions with examples.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1567900800"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/bitcoin.html">Bitcoin</a>
+	    	        <a href="tag/blockchain.html">Blockchain</a>
+	    	        <a href="tag/btc.html">BTC</a>
+	    	        <a href="tag/guides.html">Guides</a>
+	    	        <a href="tag/segwit.html">Segwit</a>
+	    	</div>
+	<a href="guides/bitcoin-address-formats.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/bitcoin-address-format_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/bitcoin-address-format_w768.jpg" alt="Bitcoin address formats and performance comparison">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Bitcoin address formats and performance comparison</header>
+                <div class="blog-post-desc">Description of address types of Bitcoin cryptocurrency. Comparison of the effectiveness of address types.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1579694400"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/confirmations.html">Confirmations</a>
+	    	        <a href="tag/cryptocurrencies.html">Cryptocurrencies</a>
+	    	        <a href="tag/exchange.html">Exchange</a>
+	    	        <a href="tag/guides.html">Guides</a>
+	    	</div>
+	<a href="guides/how-many-confirmations.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/how-many-confirmations_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/how-many-confirmations_w768.jpg" alt="How many confirmations are needed to complete the exchange?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">How many confirmations are needed to complete the exchange?</header>
+                <div class="blog-post-desc">How many confirmations are required for the exchange on FixedFloat</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1578993300"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/guides.html">Guides</a>
+	    	        <a href="tag/monero.html">Monero</a>
+	    	        <a href="tag/xmr.html">XMR</a>
+	    	</div>
+	<a href="guides/how-to-prove-xmr-tx.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/how-to-prove-xmr_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/how-to-prove-xmr_w768.jpg" alt="How to prove Monero transaction?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">How to prove Monero transaction?</header>
+                <div class="blog-post-desc">XMR is a completely anonymous cryptocurrency, information in transactions is encrypted and inaccessible to everyone. In article, we will consider how to confirm sending to a specific address and see the amount that was sent to this address.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1590710400"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	</div>
+	<a href="guides/cryptocurrency-wallets.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/crypto_wallets_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/crypto_wallets_w768.jpg" alt="Types of cryptocurrency wallets">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Types of cryptocurrency wallets</header>
+                <div class="blog-post-desc">FixedFloat is a non-custodial exchange, our users take care of storing their coins on their own. We figured out the types of wallets and gave some tips on choosing the right one.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1669896000"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	</div>
+	<a href="guides/eth-transition-to-pos.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/news/new/ff_news_ethpos_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/news/new/ff_news_ethpos_w768.jpg" alt="Ethereum’s transition from Proof-of-Work to Proof-of-Stake">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Ethereum’s transition from Proof-of-Work to Proof-of-Stake</header>
+                <div class="blog-post-desc">A week has passed since the Ethereum merger, it's time to take stock of the results of the network upgrade.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1664107200"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	</div>
+	<a href="guides/how-to-exchange.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/how-to-exchange_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/how-to-exchange_w768.jpg" alt="How to exchange cryptocurrencies on the FixedFloat?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">How to exchange cryptocurrencies on the FixedFloat?</header>
+                <div class="blog-post-desc">Step-by-step instruction for exchanging cryptocurrencies on the FixedFloat.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1638532800"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/guides.html">Guides</a>
+	    	</div>
+	<a href="guides/how-to-avoid-scams-theft.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/avoidscam_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/avoidscam_w768.jpg" alt="How to avoid scams and theft of your crypto?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">How to avoid scams and theft of your crypto?</header>
+                <div class="blog-post-desc">In this article, we have covered the most popular types of scams and how to avoid them. This knowledge can help cryptocurrency users to prematurely notice potential fraud and protect funds from intruders.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1635249600"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	        <a href="tag/binance-smart-chain.html">Binance Smart Chain</a>
+	    	        <a href="tag/bsc.html">BSC</a>
+	    	        <a href="tag/etc.html">ETC</a>
+	    	        <a href="tag/eth.html">ETH</a>
+	    	        <a href="tag/ethereum.html">Ethereum</a>
+	    	        <a href="tag/ethereum-classic.html">Ethereum Classic</a>
+	    	        <a href="tag/guides.html">Guides</a>
+	    	</div>
+	<a href="guides/sent-to-the-wrong-network.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/recover_tokens_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/recover_tokens_w768.jpg" alt="How to recover tokens when sending to the wrong network?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">How to recover tokens when sending to the wrong network?</header>
+                <div class="blog-post-desc">When exchanging cryptocurrency for FixedFloat, you probably noticed that different networks are available for some coins. We will figure out with you why it is so important to choose the correct blockchain for your wallet, as well as what to do if you mistakenly sent coins to another network.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1631620800"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	</div>
+	<a href="guides/miner-fee.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/what-is-miner-fee_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/what-is-miner-fee_w768.jpg" alt="What is the miner fee?">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">What is the miner fee?</header>
+                <div class="blog-post-desc">In most blockchains, a Miner fee is charged from the user when sending a transaction. We have prepared for you a detailed explanation of why you pay the Miner fee and how to correctly determine the amount of the fee</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1628683200"></time></div>
+    </div>
+</a></article>                                            <article class="blog-post">
+	<div class="tag-list">
+	    	</div>
+	<a href="guides/stablecoins.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="guides" style="background-image: url('../media/thumbs/blog/v2/stablecoins_w768.jpg');"></div>
+        	<img src="../media/thumbs/blog/v2/stablecoins_w768.jpg" alt="Features and disadvantages of stablecoins">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Features and disadvantages of stablecoins</header>
+                <div class="blog-post-desc">Comparison of stablecoins, their advantages and disadvantages.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1615636800"></time></div>
+    </div>
+</a></article>                                    </section>
+                <section class="blog-paginates">
+                    <ul class="blog-paginate-list" id="blog_paginate">
+                        <li><a class="active" href="guides/1.html">1</a></li><li><a class="" href="guides/2.html">2</a></li><li><a class="" href="guides/3.html">3</a></li>                    </ul>
+                    <nav class="blog-paginate-nav nav-block">
+                        <div class="nav"><a href="guides/1.html" class="btn border white circle ico arrow nav-prev"></a></div>
+                        <div class="nav"><a href="guides/2.html" class="btn border white circle ico arrow nav-next"></a></div>
+                    </nav>
+                </section>
+            </section>
+        </div>
+    </main>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            moment.locale('en');
+            Array.from(document.querySelectorAll('time[timestamp]')).forEach(function(obj) {
+                let time = moment(moment.unix(+obj.getAttribute('timestamp')).toDate()).local();
+                obj.innerHTML = time.format('LL');
+            })
+        })
+    </script>
+    <template id="cookies_accept">
+        <div class="cookie-content">
+            <p>We use cookies to provide the best experience on our website. By using the FixedFloat service you agree to <a href="../privacy-policy.html">Privacy Policy</a> and <a href="../terms-of-service.html">Terms of Service</a>.</p>
+            <button class="btn submit close" type="button">Accept &amp; Close</button>
+        </div>
+    </template>
+    <footer>
+		<div class="wrapper">
+            <div class="foot-wrap">
+        		<div class="foot-outro">
+    				<a href="../index.html" id="foot_logo" class="logo">
+    	                <span class="logo-text-fixed"></span><div class="ico"><span class="logo-arrow-from"></span><span class="logo-arrow-to hl"></span></div><span class="logo-text-float hl"></span>
+    	            </a>
+    	            <div class="foot-soc">
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_tw hoverhl" title="Twitter" href="https://twitter.com/fixedfloat"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_instagram hoverhl" title="instagram.com" href="https://www.instagram.com/fixedfloat/"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_tg hoverhl" title="Telegram" href="https://t.me/FixedFloat"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_reddit hoverhl" title="Reddit" href="https://www.reddit.com/user/FixedFloat/"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_medium hoverhl" title="medium.com" href="https://medium.com/fixedfloat"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_bestchange hoverhl" title="bestchange.com" href="https://www.bestchange.com/fixedfloat-exchanger.html"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_trustpilot hoverhl" title="trustpilot.com" href="https://www.trustpilot.com/review/fixedfloat.com"></a>
+                            	            </div>
+                    <div class="copyright">©&nbsp;2018–2025&nbsp;<span>FixedFloat</span>.&nbsp;All rights reserved.</div>
+        		</div>
+                <div class="foot-menu linkhl">
+                    <div class="col">
+                        <h4>FixedFloat</h4>
+                        <ul>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../brand.html">Our brand</a></li>
+                            <li><a href="../affiliate.html">Affiliate program</a></li>
+                            <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Popular</h4>
+                        <ul>
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="../exchange/xmr-to-btc.html">XMR to BTC</a></li>
+                            <li><a href="../exchange/eth-to-btc.html">ETH to BTC</a></li>
+                            <li><a href="../exchange/ltc-to-eth.html">LTC to ETH</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="../faq.html">FAQ</a></li>
+                            <li><a href="../support.html">Support</a></li>
+                            <li><a href="../api.html">API</a></li>
+                        </ul>
+                    </div>
+        		</div>
+            </div>
+		</div>
+	</footer>
+    <link rel="stylesheet" type="text/css" href="../assets/css/svgimgs.minbb17.css?131928">
+</body>
+
+<!-- Mirrored from ff.io/blog/guides by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Jan 2025 23:01:04 GMT -->
+</html>

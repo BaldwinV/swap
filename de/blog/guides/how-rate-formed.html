@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<!-- Mirrored from ff.io/de/blog/guides/how-rate-formed by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Jan 2025 23:01:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<title>Wie wird die FixedFloat Rate gebildet? | FixedFloat</title>
+	<meta name="description" content="Wenn Sie eine Bestellung für FixedFloat erstellen sehen Benutzer den Betrag, der alle für den Austausch erforderlichen Gebühren enthält. In diesem Artikel wird erläutert, welche Gebühren im FixedFloat -Satz enthalten sind und warum es manchmal unrentabel ist, kleine Beträge zu ändern.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta property="og:image" content="../../../media/thumbs/blog/v2/how-rate-formed.jpg">
+	<meta property="og:site_name" content="FixedFloat">
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:image:src" content="../../../media/source/blog/v2/how-rate-formed.jpg">
+	<link rel="shortcut icon" href="../../../assets/images/favicon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="../../../assets/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../../../assets/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../../assets/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../../../assets/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="117x117" href="../../../assets/images/icons/apple-touch-icon-117x117.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../../assets/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../../../assets/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../../../assets/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/images/icons/apple-touch-icon-180x180.png">
+	<link rel="alternate" hreflang="en" href="../../../en/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="es" href="../../../es/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="de" href="how-rate-formed.html">
+	<link rel="alternate" hreflang="fr" href="../../../fr/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="pt" href="../../../pt/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="ru" href="../../../ru/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="pl" href="../../../pl/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="nl" href="../../../nl/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="ua" href="../../../ua/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="tr" href="../../../tr/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="it" href="../../../it/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="cn" href="../../../cn/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="ko" href="../../../ko/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="ja" href="../../../ja/blog/guides/how-rate-formed.html">
+	<link rel="alternate" hreflang="x-default" href="../../../blog/guides/how-rate-formed.html">
+	<link rel="preload" href="../../../assets/fonts/montserrat/latin/montserrat-v25-latin-300.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../../../assets/fonts/montserrat/latin/montserrat-v25-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../../../assets/fonts/montserrat/latin/montserrat-v25-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../../../assets/fonts/montserrat/latin/montserrat-v25-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../../../assets/fonts/montserrat/latin/montserrat-v25-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../../../assets/fonts/fficons/fficonsdc90.woff2?172355" as="font" type="font/woff2" crossorigin>
+	<style type="text/css">
+		@font-face {
+			font-family: 'Icons';
+			font-display: block;
+			src: url("../../../assets/fonts/fficons/fficonsdc90.woff2?172355") format("woff2"), 
+			     url("../../../assets/fonts/fficons/fficonsdc90.woff?172355") format("woff"), 
+			     url("../../../assets/fonts/fficons/fficonsdc90.ttf?172355") format("truetype");
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="../../../assets/css/min56f6.css?131929">
+	<script type="text/javascript" src="../../../assets/js/min56f6.js?131929"></script>
+	<script type="text/javascript" src="../../../assets/js/libs/moment.min.js" defer></script>
+	<script type="text/javascript" src="../../../assets/js/libs/jsqr.js" defer></script>
+	<script type="text/javascript" src="../../../assets/js/libs/webln.min.js" defer></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125458753-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-125458753-1');
+	</script>
+</head>
+<body class="blog">
+	<script type="text/javascript">
+		let localTheme = localStorage.getItem('theme');
+		let currTheme  = localTheme ? localTheme : "dark";
+		window.themeLight = currTheme == 'light' ? true : false;
+		document.body.className += (document.body.className ? ' ' : '') + currTheme+'bg';
+	</script>
+	<script type="text/javascript">
+		function initFreshChat() {
+			let restoreId = '';
+			window.fcWidget.init({
+				token: "15d5f180-cf0e-4bcc-8165-c25e4879bab4",
+				host:  "https://wchat.freshchat.com",
+				locale: "de",
+				externalId: "client_12898840",
+				restoreId: restoreId ? restoreId : null,
+				config: {
+			    	hideFAQ: true,
+			    	agent: {
+				        hideName: true,
+				        hidePic:  true,
+				        hideBio:  false,
+			    	},
+				},
+			});
+			window.fcWidget.user.get(function(resp) {
+				window.fcWidget.user.setFirstName("Client #12898840");
+
+				let status = resp && resp.status,
+					data   = resp && resp.data;
+				if (status !== 200) {
+					window.fcWidget.on('user:created', function(resp) {
+						let status = resp && resp.status,
+							data   = resp && resp.data;
+						if (status === 200 || !restoreId) {
+							setRestoreId(data.restoreId)
+						}
+					});
+				} else if (data.restoreId && !restoreId) {
+					setRestoreId(data.restoreId)
+				}
+			});
+			function setRestoreId(restoreId) {
+				if (!restoreId) return;
+				APP.api('userSetChatRestoreId', {restoreId: restoreId})
+					.then(function(msg) {}).catch(function(msg) {})
+			}
+
+			document.dispatchEvent(new Event("freshchatStart"));
+		}
+
+		function initialize(i,t) {
+			var e;
+			i.getElementById(t) ? initFreshChat() : (
+				(e = i.createElement("script")).id = t,
+				e.async = !0,
+				e.src = "../../../../wchat.freshchat.com/js/widget.js",
+				e.onload = initFreshChat,
+				i.head.appendChild(e)
+			)
+		}
+		function initiateCall() {
+			initialize(document,"freshchat-js-sdk")
+		}
+		window.addEventListener ? window.addEventListener("load",initiateCall,!1) : window.attachEvent("load",initiateCall,!1);
+	</script>
+	<style id="highlighting_style"></style>
+	<header id="header" class="fixed">
+		<div class="wrapper">
+			<div class="left-menu-wrap" id="left_menu_wrap">
+				<div id="left_menu_btn">
+					<div><span></span><span></span><span></span></div>
+				</div>
+				<nav class="left-menu" id="left_menu">
+					<div class="theme-switch-wrap">
+						<label class="theme-switch">
+							<input type="checkbox" name="themelight" id="themelight_switch_mobile">
+							<span><i class="ico"></i></span>
+						</label>
+					</div>
+					<section>
+						<ul id="left_menu_content" class="menu linkhl">
+							<li class="menu-head"><span>Konto</span></li>
+													<li><a href="../../../user/signin.html">Einloggen</a></li>
+							<li><a href="../../../user/signup.html">Anmelden</a></li>
+													<li class="menu-head"><span>FixedFloat</span></li>
+							<li><a href="../../../about.html">Über uns</a></li>
+							<li><a href="../../../blog.html">Blog</a></li>
+							<li><a href="../../../faq.html">FAQ</a></li>
+							<li><a href="../../../api.html">API</a></li>
+							<li><a href="../../../support.html">Support</a></li>
+													<li><a href="../../../affiliate.html">Affiliate program</a></li>
+						                            <li><a href="../../../brand.html">Unsere Marke</a></li>
+							<li class="menu-head"><span>Rules</span></li>
+                            <li><a href="../../../terms-of-service.html">Allgemeine Geschäftsbedingungen</a></li>
+                            <li><a href="../../../privacy-policy.html">Datenschutzerklärung</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+			<nav>
+								<a href="../../../index.html" id="logo" class="logo">
+					<span class="logo-text-fixed" id="logo_text_from"></span><div class="ico"><span class="logo-arrow-from" id="logo_arrow_from"></span><span class="logo-arrow-to" id="logo_arrow_to"></span></div><span class="logo-text-float" id="logo_text_to"></span>
+				</a>
+				<div class="nav-right">
+					<ul class="nav menu hoverhl">
+						<li><a href="../../../about.html">Über uns</a></li>
+						<li><a href="../../../blog.html">Blog</a></li>
+						<li><a href="../../../faq.html">FAQ</a></li>
+						<li><a href="../../../api.html">API</a></li>
+						<li><a href="../../../support.html">Support</a></li>
+					</ul>
+					<div class="loc hoverhl">
+						<a class="menu-focus-btn" tabindex="0"><div class="ui-select-value"><i class="loc-img loc-de"></i></div></a>
+						<div class="menu-focus-opened">
+							<ul class="hoverhl" id="loc_menu_wrap">
+																	<li><a href="../../../en/blog/guides/how-rate-formed.html"><i class="loc-img loc-en"></i><span>English</span></a></li>
+																	<li><a href="../../../es/blog/guides/how-rate-formed.html"><i class="loc-img loc-es"></i><span>Español</span></a></li>
+																	<li><a href="how-rate-formed.html"><i class="loc-img loc-de"></i><span>Deutsch</span></a></li>
+																	<li><a href="../../../fr/blog/guides/how-rate-formed.html"><i class="loc-img loc-fr"></i><span>Français</span></a></li>
+																	<li><a href="../../../pt/blog/guides/how-rate-formed.html"><i class="loc-img loc-pt"></i><span>Português</span></a></li>
+																	<li><a href="../../../ru/blog/guides/how-rate-formed.html"><i class="loc-img loc-ru"></i><span>Русский</span></a></li>
+																	<li><a href="../../../pl/blog/guides/how-rate-formed.html"><i class="loc-img loc-pl"></i><span>Polski</span></a></li>
+																	<li><a href="../../../nl/blog/guides/how-rate-formed.html"><i class="loc-img loc-nl"></i><span>Nederlands</span></a></li>
+																	<li><a href="../../../ua/blog/guides/how-rate-formed.html"><i class="loc-img loc-ua"></i><span>Украïнська</span></a></li>
+																	<li><a href="../../../tr/blog/guides/how-rate-formed.html"><i class="loc-img loc-tr"></i><span>Türkçe</span></a></li>
+																	<li><a href="../../../it/blog/guides/how-rate-formed.html"><i class="loc-img loc-it"></i><span>Italiano</span></a></li>
+																	<li><a href="../../../cn/blog/guides/how-rate-formed.html"><i class="loc-img loc-cn"></i><span>中文</span></a></li>
+																	<li><a href="../../../ko/blog/guides/how-rate-formed.html"><i class="loc-img loc-ko"></i><span>한국어</span></a></li>
+																	<li><a href="../../../ja/blog/guides/how-rate-formed.html"><i class="loc-img loc-ja"></i><span>日本の</span></a></li>
+															</ul>
+						</div>
+						<div class="shadow-body" tabindex="0"></div>
+					</div>
+					<div class="theme-switch-wrap">
+						<label class="theme-switch">
+							<input type="checkbox" name="themelight" id="themelight_switch">
+							<span><i class="ico"></i></span>
+						</label>
+						<script type="text/javascript">
+						    if (window.themeLight) {
+						    	document.getElementById('themelight_switch').checked = true;
+						    	document.getElementById('themelight_switch_mobile').checked = true;
+						    }
+						</script>
+					</div>
+													<div class="nav userbar hoverhl">
+						<a id="header_signin" class="btn-text" href="../../../user/signin.html">Einloggen</a>
+						<a id="header_signup" class="btn" href="../../../user/signup.html">Anmelden</a>
+					</div>
+								</div>
+			</nav>
+			<div class="shadow-body"></div>
+		</div>
+	</header>
+	<template id="auth">
+	<div class="popup-auth">
+		<div class="auth-wrap">
+					<div class="auth-image"></div>
+					<div class="auth-content">
+				<nav class="auth-nav" id="auth_nav">
+					<button type="button" id="nav_signin" class="auth-nav-btn" data-layout="signin">Einloggen</button><button type="button" id="nav_signup" class="auth-nav-btn" data-layout="signup">Anmelden</button>
+				</nav>
+				<div class="auth-outer" id="auth_layouts">
+					<form class="auth-layout" id="layout_forgot">
+						<input name="email" required type="text" value="" data-label="Email" data-error-empty="Das ist ein Pflichtfeld" data-error-invalid="Die eingegebene E-Mail ist keine gültige E-Mail">
+						<div class="auth-success" id="auth_reset_success">
+							<p>Rücksetzanforderung erfolgreich gesendet. Sie erhalten eine Bestätigungs-E-Mail, wenn dieses Konto registriert wurde.</p>
+							<div class="auth-wrap-btn"><button class="btn close popup-close-btn">Schließen</button></div>
+						</div>
+						<div class="auth-error" id="auth_reset_captcha_error">Ungültiges Captcha. Versuch es noch einmal</div>
+						<div class="auth-error" id="auth_reset_error">Benutzer mit dieser E-Mail ist nicht auf der Website registriert.</div>
+						<div class="auth-wrap-btn">
+							<button class="btn" id="auth_reset_btn" disabled data-captcha-loading="Laden von CAPTCHA...">Passwort zurücksetzen</button>
+						</div>
+						<div class="auth-wrap-btn">
+							<button class="btn-text auth-nav-btn" type="button" data-layout="signin">Zurück zur Anmeldung</button>
+						</div>
+					</form>
+					<form class="auth-layout" id="layout_signin">
+						<input name="email" required type="text" value="" data-label="Email" data-error-empty="Das ist ein Pflichtfeld" data-error-invalid="Die eingegebene E-Mail ist keine gültige E-Mail">
+						<input name="pswd" required type="password" value="" data-label="Passwort" data-error-empty="Das ist ein Pflichtfeld">
+						<div class="auth-forgot-wrap">
+							<button class="btn-text hl auth-nav-btn" type="button" id="nav_forgot" data-layout="forgot">Passwort vergessen</button>
+						</div>
+						<div class="auth-error" id="signin_captcha_error">Ungültiges Captcha. Versuch es noch einmal</div>
+						<div class="auth-error" id="auth_error">Ungültige E-Mail oder Passwort</div>
+						<div class="auth-wrap-btn">
+							<button class="btn" id="auth_signin" disabled data-captcha-loading="Laden von CAPTCHA...">Einloggen</button>
+						</div>
+					</form>
+					<form class="auth-layout" id="layout_signup">
+						<input name="email" required type="text" value="" data-label="Email" data-error-empty="Das ist ein Pflichtfeld" data-error-invalid="Die eingegebene E-Mail ist keine gültige E-Mail">
+						<input name="pswd" required type="password" value="" data-label="Passwort" data-error-empty="Das ist ein Pflichtfeld" data-error-invalid="Das Passwort muss mindestens einen Groß- und einen Kleinbuchstaben, eine Ziffer und mindestens 6 Zeichen enthalten.">
+						<input name="repswd" required type="password" value="" data-label="Kennwort bestätigen" data-error-empty="Das ist ein Pflichtfeld" data-error-invalid="Passwörter stimmen nicht überein.">
+						<div class="auth-error" id="signup_captcha_error" data-loading="Ungültiges Captcha. Versuch es noch einmal"></div>
+						<div class="auth-error" id="auth_signup_error">Ein Konto mit dieser E-Mail ist bereits vorhanden. <button class="btn-text auth-nav-btn" type="button" data-layout="forgot" style="color: inherit;">Passwort vergessen?</button></div>
+						<div class="auth-wrap-btn">
+							<button class="btn" id="auth_signup" disabled data-captcha-loading="Laden von CAPTCHA...">Anmelden</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+	<main>
+		<section class="blog-article" id="article_content">
+            <header>
+    			<div class="blog-article-image" data-cat="guides"><img src="../../../media/source/blog/v2/how-rate-formed.jpg" alt=""></div>
+                <div class="wrapper">
+                    <div class="blog-article-header">
+            			<h1>Wie wird die FixedFloat Rate gebildet?</h1>
+            			<div class="blog-article-pub">
+                                                    <time timestamp="1606996800"></time>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="wrapper">
+                <div class="blog-article-tags">
+                    <div class="tag-list">
+                                            </div>
+                </div>
+                <div class="blog-article-content"><p>Wenn Sie eine Bestellung für FixedFloat erstellen, sehen Sie den Gesamtbetrag einschließlich aller Alle Gebühren. Beim Vergleich der FixedFloat-Raten stellen viele Kunden fest, dass der Gesamtbetrag von 0.5% in einer variablen Bestellung und von 1% in einer festen Bestellung abweichen kann. Bei kleinen Beträgen kann die Differenz zwischen dem gesendeten und dem empfangenen Betrag 10 bis 20% betragen. Warum passiert das? Welche Gebühren sind im endgültigen FixedFloat-Tarif enthalten? Detaillierte Antworten finden Sie in diesem Artikel.</p>
+<h3>Welche Gebühren sind im FixedFloat-Kurs enthalten?</h3>
+<p>Der Kurs beinhaltet 3 Aufträge:</p>
+<ul><li><strong>FixedFloat Gebühren</strong> — 0.5% oder 1% je nach ausgewählter Auftragsart. Dies ist der Gewinn, den unser Service für einen Umtausch erhält.<br /><em>Die Fester Kurs</em> friert die Rate für 10 Minuten ein und beträgt 1% des Betrags. Sie erhalten genau so viel Kryptowährung, wie Sie beim Erstellen eines Austauschs auf dem Bildschirm sehen.<br /><em>Der Variabler Kurs</em> beträgt 0.5% des Betrags. Der Wechselkurs wird endgültig festgelegt, wenn Ihre Transaktion die erforderliche Anzahl von Bestätigungen vom Blockchain-Netzwerk erhält.</li>
+<li><strong>Die Miner-Gebühr</strong> für eine gesendete Transaktion ist eine Gebühr für Bergleute zur Abwicklung einer Transaktion. Die Gebühr wird für die Durchführung von Aktionen erhoben: Überweisung von Geldern, Ausführung von Funktionen, die in intelligenten Verträgen vorgesehen sind, Überweisung von Token. Die Auszahlung wird dem Bergmann gutgeschrieben, der den Block zuerst erstellt hat.</li>
+<li><strong>Konsolidierungsgebühr für eine akzeptierte Transaktion</strong>.<br />Konsolidierung ist die Konsolidierung von Mitteln an einer Adresse. Dies geschieht, um die <em>Gebühren</em> für nachfolgende Transaktionen zu reduzieren. Im Bitcoin-Netzwerk wird beispielsweise eine Gebühr für 1 Eintrag und im Ethereum-Netzwerk für das erneute Senden von Geldern an die Hauptadresse erhoben. Weitere Informationen finden Sie in unserem Artikel <a href="../../../blog/guides/what-is-consolidation.html" target="_blank" rel="noopener noreferrer">Was ist Konsolidierung?</a>.</li>
+</ul><h3>Mehrfachkosten für die Konsolidierung</h3>
+<p>Verschiedene Adressen werden verwendet, um Zahlungen für Ethereum und seine Token zu identifizieren. Um ein ETH-Token zu senden, muss die Adresse die ETH haben. Beim Senden eines Tokens ist es fast unmöglich, den ETH-Betrag, der zum Senden einer Transaktion benötigt wird, im Voraus zu berechnen. Darüber hinaus ist eine Marge erforderlich, um die <em>Gebühren</em> bei erhöhter Netzwerklast zu erhöhen.</p>
+<p>Schauen wir uns die Konsolidierung eines ETH-Tokens anhand eines Beispiels an.</p>
+<p><em>Der Kunde hat 100 USDT an unsere Brieftasche geschickt. Um ein Token an die Hauptadresse abzuheben, benötigen wir:</em></p>
+<ol><li><em>Senden Sie den erforderlichen ETH-Betrag zur Deckung aller Gebühren an dieselbe Adresse, an die USDT eingegangen ist. Zum Zeitpunkt dieses Schreibens beträgt die Miner-Gebühr 50 Cent.</em></li>
+<li><em>Senden Sie USDT über die ETH an die Hauptadresse, um die Miner-Gebühr zu zahlen - nicht mehr als 1.5 USD.</em></li>
+<li><em>Bringen Sie den Rest der ETH an die Hauptadresse zurück und zahlen Sie erneut die Miner-Gebühr — 50 Cent. Alle Münzen werden an die Hauptadresse überwiesen, da von dort aus Zahlungen an Kunden erfolgen.</em></li>
+</ol><p><em>Insgesamt kostet es ungefähr 2.5 USD, USDT an die Hauptadresse zu senden. Der Höhe der Gebühren wird zum aktuellen Satz berechnet: ETH — 400 USD, Gas — 60 Gwei.</em></p>
+<h3>Kurse für kleine Umtauschbeträge</h3>
+<p>Es kann äußerst unrentabel sein, kleine Mengen zu ändern. Besonders Bitcoin und Ethereum, die hohe Netzwerkgebühren haben. Der endgültige Betrag kann für Sie sehr enttäuschend sein.</p>
+<p>Nehmen wir ein Beispiel für den Umtausch von USDT gegen BTC in Höhe von 20 USD während einer durchschnittlichen Ladezeit sowohl im Bitcoin-Netzwerk als auch im Ethereum-Netzwerk.</p>
+<ul><li>Die FixedFloat Gebühren zum Variabler Kurs beträgt 10 Cent</li>
+<li>Bergmannsgebühr im BTC-Netzwerk — 3 USD</li>
+<li>Konsolidierungsgebühr für Ethereum — 2.5 USD</li>
+</ul><p>Wie Sie sehen, werden bis zu <strong>27.5%</strong> des Betrags für die Gebühren verwendet. Wenn beispielsweise USDT in Höhe von 200 USD gegen BTC eingetauscht wird, beträgt die <em>Gebühren</em> für Bergleute <strong>2.75%</strong> des Betrags und 1000 USD bereits <strong>0.55%</strong>. Daraus folgt, dass es in dieser Richtung viel rentabler ist, einen Austausch mit größeren Beträgen durchzuführen.</p></div>
+            </div>
+		</section>
+        <section class="blog-recent">
+            <div class="wrapper">
+                <h2>Kürzliche Posts</h2>
+                <div class="blog-carousel" id="recent_articles">
+                                    <a href="../../../blog/news/weekly-2025-01-18.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/2025/FF-New_News_01-25_02_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/2025/FF-New_News_01-25_02_w768.jpg" alt="Nachrichten zu Kryptowährungen der 3. Januar 2025">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 3. Januar 2025</header>
+                <div class="blog-post-desc">XRP erreicht Siebenjahreshoch, USDC-Popularität wächst, Tether-Hauptquartier zieht nach El Salvador.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1737115200"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2025-01-11.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/2025/FF-New_News_01-25_01_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/2025/FF-New_News_01-25_01_w768.jpg" alt="Nachrichten zu Kryptowährungen der 2. Januar 2025">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 2. Januar 2025</header>
+                <div class="blog-post-desc">FixedFloat hat SUI hinzugefügt, FixedFloat Telegram Bot, Alles Gute zum 16. Geburtstag, Bitcoin!</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1736596800"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/results-of-2024.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_Christmas_12-24_fin_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_Christmas_12-24_fin_w768.jpg" alt="Merry Christmas and Happy New Year!">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Merry Christmas and Happy New Year!</header>
+                <div class="blog-post-desc">FixedFloat gratuliert Ihnen zu den bevorstehenden Feiertagen!</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1735041600"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-12-21.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_12-24_03_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_12-24_03_w768.jpg" alt="Nachrichten zu Kryptowährungen der 3. Dezember 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 3. Dezember 2024</header>
+                <div class="blog-post-desc">Der Markt zeigt eine rote Stimmung, die Lawinengebühr ist um das 25-fache gesunken.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1734782400"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-12-14.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_12-24_02_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_12-24_02_w768.jpg" alt="Nachrichten zu Kryptowährungen der 2. Dezember 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 2. Dezember 2024</header>
+                <div class="blog-post-desc">Stablecoin market cap continues to grow, Avalanche9000 launch expected, 69% of Dogecoin nodes down.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1734177600"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-12-07.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_12-24_01_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_12-24_01_w768.jpg" alt="Nachrichten zu Kryptowährungen der 1. Dezember 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 1. Dezember 2024</header>
+                <div class="blog-post-desc">Bitcoin zum Mond, Dogecoin feiert 11-jähriges Jubiläum, Ethereum-Entwickler kritisiert Solana.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1733572800"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-11-29.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_04_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_04_w768.jpg" alt="Nachrichten zu Kryptowährungen der 4. November 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 4. November 2024</header>
+                <div class="blog-post-desc">Ethereum ist erneut zum Spitzenreiter für USDT geworden, XRP ist auf 1,68 $ gestiegen und die TON-Entwickler haben eine Brücke zu BTC präsentiert.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1732968000"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-11-23.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_03_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_03_w768.jpg" alt="Nachrichten zu Kryptowährungen der 3. November 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 3. November 2024</header>
+                <div class="blog-post-desc">Bitcoin nähert sich der 100.000-Dollar-Marke, Altcoins verzeichnen Wachstum, Justin Sun hat eine Banane für 6,24 Millionen Dollar gekauft.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1732363200"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-11-16.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_02_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_02_w768.jpg" alt="Nachrichten zu Kryptowährungen der 2. November 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 2. November 2024</header>
+                <div class="blog-post-desc">Neuer BTC-Kursrekord, DOGE und XRP begeistern Nutzer, 25,8 Millionen Dollar Fehler. </div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1731758400"></time></div>
+    </div>
+</a>                                    <a href="../../../blog/news/weekly-2024-11-09.html" class="blog-post">
+    <div class="blog-post-img">
+     
+    	<div class="blog-post-img-bg" data-cat="news" style="background-image: url('../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_01_w768.jpg');"></div>
+        	<img src="../../../media/thumbs/blog/news/August%202024/FF-New_News_11-24_01_w768.jpg" alt="Nachrichten zu Kryptowährungen der 1. November 2024">
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post-wrap">
+            <div class="blog-post-webkitbox">
+                <header class="blog-post-head">Nachrichten zu Kryptowährungen der 1. November 2024</header>
+                <div class="blog-post-desc">Neuer BTC-Rekord, Top-10-Währungen erreichen grüne Zone, Meme-Token-Kurs steigt wegen entflohener Affen.</div>
+            </div>
+        </div>
+        <div class="blog-time"><time timestamp="1731153600"></time></div>
+    </div>
+</a>                                </div>
+                <div class="nav-block">
+                    <div class="nav"><button type="button" class="btn border white circle ico arrow nav-prev" id="recent_articles_prev"></button></div>
+                    <div class="nav"><button type="button" class="btn border white circle ico arrow nav-next" id="recent_articles_next"></button></div>
+                    <div class="nav-line-wrap">
+                        <div class="nav-line" id="recent_articles_line"></div>
+                    </div>
+                    <div class="nav-all">
+                        <a class="btn border" href="#">All news</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+	</main>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+            let F = UI.func;
+			moment.locale('de');
+
+            Array.from(document.querySelectorAll('time[timestamp]')).forEach(function(obj) {
+                let time = moment(moment.unix(+obj.getAttribute('timestamp')).toDate()).local();
+                obj.innerHTML = time.format('LL');
+            })
+            
+            UI.func.on('article_content', 'click', '.blog-longtext > .copy', function(e) {
+                UI.func.copy(this.parentNode.innerText);
+            })
+
+            UI.carousel('recent_articles', {
+                maxScrollSlide: 8,
+                navPrev:  F.id('recent_articles_prev'),
+                navNext:  F.id('recent_articles_next'),
+                wrapline: F.id('recent_articles_line')
+            });
+		})
+	</script>
+    <template id="cookies_accept">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung des FixedFloat-Dienstes stimmen Sie der <a href="../../../privacy-policy.html">Datenschutzerklärung</a> und den <a href="../../../terms-of-service.html">Nutzungsbedingungen</a> zu.</p>
+            <button class="btn submit close" type="button">Akzeptieren und schließen</button>
+        </div>
+    </template>
+    <footer>
+		<div class="wrapper">
+            <div class="foot-wrap">
+        		<div class="foot-outro">
+    				<a href="../../../index.html" id="foot_logo" class="logo">
+    	                <span class="logo-text-fixed"></span><div class="ico"><span class="logo-arrow-from"></span><span class="logo-arrow-to hl"></span></div><span class="logo-text-float hl"></span>
+    	            </a>
+    	            <div class="foot-soc">
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_tw hoverhl" title="Twitter" href="https://twitter.com/fixedfloat"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_instagram hoverhl" title="instagram.com" href="https://www.instagram.com/fixedfloat/"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_tg hoverhl" title="Telegram" href="https://t.me/FixedFloat"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_reddit hoverhl" title="Reddit" href="https://www.reddit.com/user/FixedFloat/"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_medium hoverhl" title="medium.com" href="https://medium.com/fixedfloat"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_bestchange hoverhl" title="bestchange.com" href="https://www.bestchange.com/fixedfloat-exchanger.html"></a>
+                        <a rel="noopener noreferrer" target="_blank" class="ico s_trustpilot hoverhl" title="trustpilot.com" href="https://www.trustpilot.com/review/fixedfloat.com"></a>
+                            	            </div>
+                    <div class="copyright">©&nbsp;2018–2025&nbsp;<span>FixedFloat</span>.&nbsp;All rights reserved.</div>
+        		</div>
+                <div class="foot-menu linkhl">
+                    <div class="col">
+                        <h4>FixedFloat</h4>
+                        <ul>
+                            <li><a href="../../../about.html">Über uns</a></li>
+                            <li><a href="../../../brand.html">Unsere Marke</a></li>
+                            <li><a href="../../../affiliate.html">Affiliate program</a></li>
+                            <li><a href="../../../terms-of-service.html">Allgemeine Geschäftsbedingungen</a></li>
+                            <li><a href="../../../privacy-policy.html">Datenschutzerklärung</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Popular</h4>
+                        <ul>
+                            <li><a href="../../../blog.html">Blog</a></li>
+                            <li><a href="../../../exchange/xmr-to-btc.html">XMR to BTC</a></li>
+                            <li><a href="../../../exchange/eth-to-btc.html">ETH to BTC</a></li>
+                            <li><a href="../../../exchange/ltc-to-eth.html">LTC to ETH</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="../../../faq.html">FAQ</a></li>
+                            <li><a href="../../../support.html">Support</a></li>
+                            <li><a href="../../../api.html">API</a></li>
+                        </ul>
+                    </div>
+        		</div>
+            </div>
+		</div>
+	</footer>
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/svgimgs.minbb17.css?131928">
+</body>
+
+<!-- Mirrored from ff.io/de/blog/guides/how-rate-formed by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Jan 2025 23:01:17 GMT -->
+</html>
